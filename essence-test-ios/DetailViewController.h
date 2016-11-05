@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DetailViewController.h
 //  essence-test-ios
 //
 //  Created by Chris Ragobeer on 2016-11-05.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSMutableArray *tableData;
-}
+@interface DetailViewController : UIViewController
+
+@property (nonatomic, strong) NSString *photoId;
 
 @end
-

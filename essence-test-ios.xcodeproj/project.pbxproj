@@ -12,9 +12,14 @@
 		BC3320491DCA3B1000D16BF6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3320481DCA3B1000D16BF6 /* ViewController.m */; };
 		BC33204C1DCA3B1000D16BF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC33204A1DCA3B1000D16BF6 /* Main.storyboard */; };
 		BC33204E1DCA3B1000D16BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC33204D1DCA3B1000D16BF6 /* Assets.xcassets */; };
-		BC3320511DCA3B1000D16BF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC33204F1DCA3B1000D16BF6 /* LaunchScreen.storyboard */; };
 		BC33205C1DCA3B1000D16BF6 /* essence_test_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC33205B1DCA3B1000D16BF6 /* essence_test_iosTests.m */; };
 		BC3320671DCA3B1000D16BF6 /* essence_test_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3320661DCA3B1000D16BF6 /* essence_test_iosUITests.m */; };
+		BC3320791DCA5D1200D16BF6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3320781DCA5D1200D16BF6 /* DetailViewController.m */; };
+		BC3320801DCA662500D16BF6 /* EssenceService.m in Sources */ = {isa = PBXBuildFile; fileRef = BC33207F1DCA662500D16BF6 /* EssenceService.m */; };
+		BC3320841DCA7B1500D16BF6 /* EssencePicture.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3320831DCA7B1500D16BF6 /* EssencePicture.m */; };
+		BC3320871DCA840E00D16BF6 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC3320861DCA840E00D16BF6 /* CameraViewController.m */; };
+		BC33208C1DCAAA5D00D16BF6 /* camera-clipart-49719.png in Resources */ = {isa = PBXBuildFile; fileRef = BC33208B1DCAAA5D00D16BF6 /* camera-clipart-49719.png */; };
+		BC73709B1DCE33A800EE648F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC73709A1DCE33A800EE648F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +48,6 @@
 		BC3320481DCA3B1000D16BF6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BC33204B1DCA3B1000D16BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC33204D1DCA3B1000D16BF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BC3320501DCA3B1000D16BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC3320521DCA3B1000D16BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC3320571DCA3B1000D16BF6 /* essence-test-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "essence-test-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC33205B1DCA3B1000D16BF6 /* essence_test_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essence_test_iosTests.m; sourceTree = "<group>"; };
@@ -51,6 +55,17 @@
 		BC3320621DCA3B1000D16BF6 /* essence-test-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "essence-test-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC3320661DCA3B1000D16BF6 /* essence_test_iosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = essence_test_iosUITests.m; sourceTree = "<group>"; };
 		BC3320681DCA3B1000D16BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC3320771DCA5D1200D16BF6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		BC3320781DCA5D1200D16BF6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		BC33207E1DCA662500D16BF6 /* EssenceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssenceService.h; sourceTree = "<group>"; };
+		BC33207F1DCA662500D16BF6 /* EssenceService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssenceService.m; sourceTree = "<group>"; };
+		BC3320821DCA7B1500D16BF6 /* EssencePicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssencePicture.h; sourceTree = "<group>"; };
+		BC3320831DCA7B1500D16BF6 /* EssencePicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EssencePicture.m; sourceTree = "<group>"; };
+		BC3320851DCA840E00D16BF6 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		BC3320861DCA840E00D16BF6 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		BC33208B1DCAAA5D00D16BF6 /* camera-clipart-49719.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-clipart-49719.png"; sourceTree = "<group>"; };
+		BC33208D1DCB57E100D16BF6 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		BC73709A1DCE33A800EE648F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +116,14 @@
 		BC3320401DCA3B1000D16BF6 /* essence-test-ios */ = {
 			isa = PBXGroup;
 			children = (
-				BC3320441DCA3B1000D16BF6 /* AppDelegate.h */,
-				BC3320451DCA3B1000D16BF6 /* AppDelegate.m */,
-				BC3320471DCA3B1000D16BF6 /* ViewController.h */,
-				BC3320481DCA3B1000D16BF6 /* ViewController.m */,
+				BC3320751DCA5B2800D16BF6 /* Application */,
+				BC3320761DCA5B3100D16BF6 /* Layout */,
+				BC3320741DCA5B1500D16BF6 /* ViewControllers */,
+				BC3320811DCA7AF900D16BF6 /* Data */,
+				BC33207D1DCA660100D16BF6 /* Network */,
 				BC33204A1DCA3B1000D16BF6 /* Main.storyboard */,
-				BC33204D1DCA3B1000D16BF6 /* Assets.xcassets */,
-				BC33204F1DCA3B1000D16BF6 /* LaunchScreen.storyboard */,
-				BC3320521DCA3B1000D16BF6 /* Info.plist */,
 				BC3320411DCA3B1000D16BF6 /* Supporting Files */,
+				BC33208D1DCB57E100D16BF6 /* Constants.h */,
 			);
 			path = "essence-test-ios";
 			sourceTree = "<group>";
@@ -117,6 +131,7 @@
 		BC3320411DCA3B1000D16BF6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BC73709A1DCE33A800EE648F /* LaunchScreen.storyboard */,
 				BC3320421DCA3B1000D16BF6 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +153,72 @@
 				BC3320681DCA3B1000D16BF6 /* Info.plist */,
 			);
 			path = "essence-test-iosUITests";
+			sourceTree = "<group>";
+		};
+		BC3320741DCA5B1500D16BF6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC3320881DCA841300D16BF6 /* Camera */,
+				BC33208A1DCA844E00D16BF6 /* PhotoList */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BC3320751DCA5B2800D16BF6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BC3320441DCA3B1000D16BF6 /* AppDelegate.h */,
+				BC3320521DCA3B1000D16BF6 /* Info.plist */,
+				BC3320451DCA3B1000D16BF6 /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		BC3320761DCA5B3100D16BF6 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BC33208B1DCAAA5D00D16BF6 /* camera-clipart-49719.png */,
+				BC33204D1DCA3B1000D16BF6 /* Assets.xcassets */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		BC33207D1DCA660100D16BF6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BC33207E1DCA662500D16BF6 /* EssenceService.h */,
+				BC33207F1DCA662500D16BF6 /* EssenceService.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		BC3320811DCA7AF900D16BF6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BC3320821DCA7B1500D16BF6 /* EssencePicture.h */,
+				BC3320831DCA7B1500D16BF6 /* EssencePicture.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		BC3320881DCA841300D16BF6 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				BC3320851DCA840E00D16BF6 /* CameraViewController.h */,
+				BC3320861DCA840E00D16BF6 /* CameraViewController.m */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		BC33208A1DCA844E00D16BF6 /* PhotoList */ = {
+			isa = PBXGroup;
+			children = (
+				BC3320471DCA3B1000D16BF6 /* ViewController.h */,
+				BC3320481DCA3B1000D16BF6 /* ViewController.m */,
+				BC3320771DCA5D1200D16BF6 /* DetailViewController.h */,
+				BC3320781DCA5D1200D16BF6 /* DetailViewController.m */,
+			);
+			name = PhotoList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +330,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3320511DCA3B1000D16BF6 /* LaunchScreen.storyboard in Resources */,
 				BC33204E1DCA3B1000D16BF6 /* Assets.xcassets in Resources */,
 				BC33204C1DCA3B1000D16BF6 /* Main.storyboard in Resources */,
+				BC73709B1DCE33A800EE648F /* LaunchScreen.storyboard in Resources */,
+				BC33208C1DCAAA5D00D16BF6 /* camera-clipart-49719.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,8 +359,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3320491DCA3B1000D16BF6 /* ViewController.m in Sources */,
+				BC3320871DCA840E00D16BF6 /* CameraViewController.m in Sources */,
 				BC3320461DCA3B1000D16BF6 /* AppDelegate.m in Sources */,
+				BC3320801DCA662500D16BF6 /* EssenceService.m in Sources */,
+				BC3320841DCA7B1500D16BF6 /* EssencePicture.m in Sources */,
 				BC3320431DCA3B1000D16BF6 /* main.m in Sources */,
+				BC3320791DCA5D1200D16BF6 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,14 +406,6 @@
 				BC33204B1DCA3B1000D16BF6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BC33204F1DCA3B1000D16BF6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BC3320501DCA3B1000D16BF6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -516,6 +594,7 @@
 				BC33206D1DCA3B1000D16BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC33206E1DCA3B1000D16BF6 /* Build configuration list for PBXNativeTarget "essence-test-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +603,7 @@
 				BC3320701DCA3B1000D16BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BC3320711DCA3B1000D16BF6 /* Build configuration list for PBXNativeTarget "essence-test-iosUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +612,7 @@
 				BC3320731DCA3B1000D16BF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

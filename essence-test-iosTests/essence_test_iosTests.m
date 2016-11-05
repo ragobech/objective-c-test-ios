@@ -2,7 +2,7 @@
 //  essence_test_iosTests.m
 //  essence-test-iosTests
 //
-//  Created by Chris Ragobeer on 2016-11-02.
+//  Created by Chris Ragobeer on 2016-11-05.
 //  Copyright © 2016 Essence. All rights reserved.
 //
 
@@ -23,6 +23,30 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
+
+
+-(void)testConnectToEssenceServer {
+    
+    
+    NSString *b = @"https://api-server.essenceprototyping.com:999/photos/get/58193fe6c225222f7096d092";
+    NSURL *dataURL = [NSURL URLWithString:b];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:dataURL];
+    [request setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      
+                                      if(error!=nil){
+                                          XCTAssertTrue(error != nil, "Can connect to server.");
+                                      }else {
+                                           XCTAssertFalse(error == nil, "No connection to server.");
+                                      }
+                                  }];
+    [task resume];
+}
+
 
 - (void)testExample {
     // This is an example of a functional test case.
