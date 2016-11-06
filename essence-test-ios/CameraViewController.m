@@ -9,6 +9,7 @@
 #import "CameraViewController.h"
 #import "ViewController.h"
 #import "EssenceService.h"
+#import "UIImage+Resize.h"
 
 @interface CameraViewController ()
 
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setupLayout];
     [self setupDeveloperInformation];
 }
@@ -26,6 +27,8 @@
 -(void)setupLayout {
     
     self.title = @"Essence Test App";
+    
+    self.uploadImage.enabled = NO;
     UIBarButtonItem *photos = [[UIBarButtonItem alloc]initWithTitle:@"Photos" style:UIBarButtonItemStylePlain target:self action:@selector(goToPhotos)];
     self.navigationItem.rightBarButtonItem=photos;
     
@@ -33,15 +36,15 @@
         
         
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                      message:@"Device has no camera"
-                                                               preferredStyle:UIAlertControllerStyleAlert];
+                                                                       message:@"Device has no camera"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * action) {}];
         
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
-
+        
         
     }
 }
@@ -51,55 +54,60 @@
     NSDictionary *infoPlistDict = [[NSBundle mainBundle] infoDictionary];
     NSString *name = infoPlistDict[@"developer_name"];
     self.developername.text = name;
-
-}
-
-
-- (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
-    UIGraphicsBeginImageContext(size);
-    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return destImage;
+    
 }
 
 -(void)uploadTask {
     
-
     UIImage *image = self.imageView.image;
-    NSData *imageData = UIImagePNGRepresentation(image);
-    NSString *encodedString = [imageData base64EncodedStringWithOptions:0];
-    
-    [[EssenceService sharedInstance] uploadBase64ImageWithCompletionBlock:encodedString :^(NSData *dataObject, NSError *error) {
+    UIImage *image2 =  [UIImage resizeImage:image];
+    self.imageView.image = image2;
+    NSData *imageData = UIImagePNGRepresentation(image2);
+    NSString *encodedString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+
+    [[EssenceService sharedInstance] upload2Base64ImageWithCompletionBlock:encodedString :^(NSData *dataObject, NSURLResponse *response,NSError *error) {
         
-        if (!error) {
+        
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        int responseCode = (int)[httpResponse statusCode];
+        
+        if (!error && responseCode == 200) {
             
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Success"
-                                                                           message:@"Upload Image successful"
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {}];
-            
-            [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
-            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Success"
+                                                                               message:@"Upload Image successful"
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            });
         }
         else
         {
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                           message:@"Cannot connect to Server"
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {}];
             
-            [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
+            NSLog(@"The response code: %i",responseCode);
+            
+            NSString *errorMsg = [NSString stringWithFormat:@"Error in uploading image, please try again. Status code : %i",responseCode];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                               message:errorMsg
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [alert addAction:defaultAction];
+                [self presentViewController:alert animated:YES completion:nil];
+                
+            });
+            
         }
     }];
-    
-    
 }
 
 -(void)goToPhotos {
@@ -110,7 +118,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
+    
 }
 
 #pragma mark - Image Picker Controller delegate methods
@@ -119,13 +127,13 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     
+    self.uploadImage.enabled = YES;
     self.imageView.image = chosenImage;
-        [picker dismissViewControllerAnimated:YES completion:NULL];
+    [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
@@ -133,11 +141,11 @@
 - (IBAction)uploadPhoto:(UIButton *)sender {
     
     NSData *data = UIImagePNGRepresentation(self.imageView.image);
-    NSString *str = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    NSString *str = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
     NSLog(@"The string is %@",str);
     
     [self uploadTask];
-
+    
 }
 
 
@@ -147,8 +155,8 @@
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
     [self presentViewController:picker animated:YES completion:NULL];
+    //   self.uploadImage.enabled = YES;
     
 }
 
@@ -159,6 +167,7 @@
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:NULL];
+    //  self.uploadImage.enabled = YES;
 }
 
 

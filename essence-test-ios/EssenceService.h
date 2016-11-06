@@ -15,9 +15,12 @@
     NSString *objectName;
 }
 +(EssenceService *)sharedInstance;
--(void)uploadBase64ImageWithCompletionBlock:(NSString *)encodedString :(void(^)(NSData *dataObject, NSError *error)) completionBlock;
+-(void)uploadBase64ImageWithCompletionBlock:(NSData *)imageData withEncodedString:(NSString *)encodedString :(void(^)(NSData *dataObject,NSURLResponse *response, NSError *error)) completionBlock;
+
+-(void)upload2Base64ImageWithCompletionBlock:(NSString *)base64EncodedString :(void(^)(NSData *dataObject,NSURLResponse *response, NSError *error)) completionBlock;
+
 -(void) fetchPhotoListWithCompletionBlock:(void(^)(NSArray *photoArray, NSError *error)) completionBlock;
--(void) fetchPhotoBase64DataWithCompletionBlock:(NSString *)photoID :(void(^)(NSData *dataObject, NSError *error)) completionBlock;
+-(void) fetchPhotoBase64DataWithCompletionBlock:(NSString *)photoID :(void(^)(NSData *dataObject,NSURLResponse *response, NSError *error)) completionBlock;
 
 @property (nonatomic, readonly) NSDictionary *parsedData;
 

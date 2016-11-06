@@ -16,9 +16,6 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UILabel *developername;
-
-
-
 @end
 
 @implementation ViewController
@@ -86,11 +83,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:    (NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imagePhoto"];
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"imagePhoto"];
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

@@ -76,6 +76,7 @@
                     <connections>
                         <outlet property="developername" destination="zUx-M3-u9F" id="XqE-2j-1RO"/>
                         <outlet property="imageView" destination="JBZ-wu-4y8" id="1Qa-Dd-45D"/>
+                        <outlet property="uploadImage" destination="QNe-aG-bBo" id="ZXu-WE-whp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8W-zf-AFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,27 +98,12 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rUS-Hp-sJM">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="mvg-Xr-gW5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imagePhoto" rowHeight="66" id="mvg-Xr-gW5">
                                         <rect key="frame" x="0.0" y="28" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mvg-Xr-gW5" id="jR1-lX-dbV">
                                             <frame key="frameInset" width="375" height="65.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSf-rV-7TV">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="42" id="Qbg-88-eTU"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hSf-rV-7TV" secondAttribute="trailing" constant="14" id="3mj-vx-pJt"/>
-                                                <constraint firstItem="hSf-rV-7TV" firstAttribute="top" secondItem="jR1-lX-dbV" secondAttribute="topMargin" constant="3" id="57P-wx-Ee7"/>
-                                                <constraint firstItem="hSf-rV-7TV" firstAttribute="leading" secondItem="jR1-lX-dbV" secondAttribute="leadingMargin" constant="11" id="QTg-rZ-Vgj"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

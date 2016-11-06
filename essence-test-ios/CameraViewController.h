@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UILabel *developername;
+@property (nonatomic, weak) IBOutlet UIButton *uploadImage;
 
 - (IBAction)takePhoto:  (UIButton *)sender;
 - (IBAction)selectPhoto:(UIButton *)sender;

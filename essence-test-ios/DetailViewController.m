@@ -26,12 +26,14 @@
 
 -(void)showPhoto{
 
-    [[EssenceService sharedInstance] fetchPhotoBase64DataWithCompletionBlock:self.photoId :^(NSData *dataObject, NSError *error) {
+    [[EssenceService sharedInstance] fetchPhotoBase64DataWithCompletionBlock:self.photoId :^(NSData *dataObject, NSURLResponse *response, NSError *error) {
         
         if (!error) {
           
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSString *str = [[NSString alloc] initWithData:dataObject encoding:NSUTF8StringEncoding];
+                
+                NSLog(@"%@",str);
                 NSData *data1 = [[NSData alloc]initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
                 self.imageView.image = [UIImage imageWithData:data1];
             });
