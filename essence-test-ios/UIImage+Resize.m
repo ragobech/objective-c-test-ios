@@ -15,18 +15,20 @@
     
     NSData *finalData = nil;
     NSData *unscaledData = UIImagePNGRepresentation(image);
-    
+      NSLog(@"====Number of bytes: %lu",(unsigned long)unscaledData.length);
     if (unscaledData.length > 50000.0f ) {
         //if image size is greater than 5KB dividing its height and width maintaining proportions
         UIImage *scaledImage = [self imageWithImage:image andWidth:image.size.width/2 andHeight:image.size.height/2];
         finalData = UIImagePNGRepresentation(scaledImage);
         NSLog(@"%lu", (unsigned long)finalData.length);
         if (finalData.length > 50000.0f  ) {
-            [self resizeImage:scaledImage];
+            return [self resizeImage:scaledImage];
         }else {
             return scaledImage;
         }
     }
+    
+     NSLog(@"returning original image %lu",(unsigned long)unscaledData.length);
     return image;
 }
 

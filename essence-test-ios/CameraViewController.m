@@ -63,6 +63,11 @@
     UIImage *image2 =  [UIImage resizeImage:image];
     self.imageView.image = image2;
     NSData *imageData = UIImagePNGRepresentation(image2);
+    
+    
+    NSData *imageData1 =  UIImagePNGRepresentation(image);
+    NSLog(@"Number of bytes: %lu",(unsigned long)imageData1.length);
+    NSLog(@"Number of bytes: %lu",(unsigned long)imageData.length);
     NSString *encodedString = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 
     [[EssenceService sharedInstance] upload2Base64ImageWithCompletionBlock:encodedString :^(NSData *dataObject, NSURLResponse *response,NSError *error) {
